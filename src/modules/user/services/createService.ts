@@ -1,12 +1,10 @@
 import { getCustomRepository } from "typeorm"
-import { IDataCreateUser, IReturnCreateUser } from "../dto"
+import { IDataUser, IReturnCreateUser } from "../dto"
 import { hash } from "bcryptjs"
 import { UserRepo } from "../repositories/userRepo"
 import { AppError } from "../../../shared/error"
-
-
 class CreateServices {
-    public async createServices({ name, email, password }: IDataCreateUser): Promise<IReturnCreateUser> {
+    public async createServices({ name, email, password }: IDataUser): Promise<IReturnCreateUser> {
         const useRepo = getCustomRepository(UserRepo)
 
         const user = await useRepo.findByEmail(email)

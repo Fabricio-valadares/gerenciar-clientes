@@ -1,0 +1,16 @@
+import { Request, Response } from "express"
+import { SessionLoginService } from "../services/sessionLoginService"
+
+class LoginController {
+    public async execute(request: Request, response: Response): Promise<Response> {
+        const { email, password } = request.body
+
+        const sessionLoginService = new SessionLoginService()
+
+        const token = await sessionLoginService.verifyDataUser({ email, password })
+
+        return response.status(200).json(token)
+    }
+}
+
+export { LoginController }

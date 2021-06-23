@@ -1,6 +1,11 @@
 
-interface IDataCreateUser {
+interface IDataUser {
     name: string;
+    email: string;
+    password: string;
+}
+
+interface IDataLoginRequest {
     email: string;
     password: string;
 }
@@ -11,4 +16,8 @@ interface IReturnCreateUser {
     email: string;
 }
 
-export { IDataCreateUser, IReturnCreateUser }
+interface IDataLogin {
+    token: string;
+}
+
+export { IDataUser, IReturnCreateUser, IDataLogin, IDataLoginRequest }
