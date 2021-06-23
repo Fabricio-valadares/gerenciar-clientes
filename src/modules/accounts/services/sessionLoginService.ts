@@ -1,9 +1,9 @@
 import { getCustomRepository } from "typeorm"
 import { AppError } from "../../../shared/error"
-import { IDataLogin, IDataLoginRequest } from "../dto"
+import { IDataLogin, IDataLoginRequest } from "../dtos"
 import { sign } from "jsonwebtoken"
 import { compare } from "bcryptjs"
-import { UserRepo } from "../repositories/userRepo"
+import { UserRepo } from "../../user/repositories/userRepo"
 import getenv from "getenv"
 
 class SessionLoginService {

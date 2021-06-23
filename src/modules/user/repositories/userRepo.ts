@@ -1,6 +1,6 @@
 import { EntityRepository, Repository } from "typeorm"
 import { UserEntitie } from "../typeorm/entities/userEntitie"
-import { IDataUser } from "../dto"
+import { IDataUser } from "../dtos"
 
 @EntityRepository(UserEntitie)
 class UserRepo extends Repository<UserEntitie> {
@@ -20,6 +20,12 @@ class UserRepo extends Repository<UserEntitie> {
 
     public async findByEmail(email: string): Promise<UserEntitie | undefined> {
         const user = await this.findOne({ where: { email } })
+
+        return user
+    }
+
+    public async findByUserId(user_id: string): Promise<UserEntitie | undefined> {
+        const user = await this.findOne(user_id)
 
         return user
     }

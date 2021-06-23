@@ -1,9 +1,9 @@
 import { getCustomRepository } from "typeorm"
-import { IDataCreateUser } from "../dto"
+import { IDataUser } from "../dtos"
 import { UserRepo } from "../repositories/userRepo"
 
 class ListServices {
-    public async listUserServices(): Promise<IDataCreateUser[]> {
+    public async listUserServices(): Promise<IDataUser[]> {
         const useRepo = getCustomRepository(UserRepo)
 
         const listInUser = await useRepo.listUser()

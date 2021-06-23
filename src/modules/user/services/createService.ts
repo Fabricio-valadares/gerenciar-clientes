@@ -1,5 +1,5 @@
 import { getCustomRepository } from "typeorm"
-import { IDataUser, IReturnCreateUser } from "../dto"
+import { IDataUser, IReturnCreateUser } from "../dtos"
 import { hash } from "bcryptjs"
 import { UserRepo } from "../repositories/userRepo"
 import { AppError } from "../../../shared/error"
