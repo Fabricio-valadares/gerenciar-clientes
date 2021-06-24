@@ -7,9 +7,15 @@ class CreateServices {
     public async createServices({ name, email, password }: IDataUser): Promise<IReturnCreateUser> {
         const useRepo = getCustomRepository(UserRepo)
 
-        const user = await useRepo.findByEmail(email)
+        const userName = await useRepo.finfByUserName(name)
 
-        if (user) {
+        if (userName) {
+            throw new AppError("Name já existe", 400)
+        }
+
+        const userEmail = await useRepo.findByEmail(email)
+
+        if (userEmail) {
             throw new AppError("Email já existe", 200)
         }
 
