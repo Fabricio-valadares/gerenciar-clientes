@@ -6,6 +6,7 @@ import { ForgotPasswordController } from "../../../modules/accounts/controller/F
 import { ResetPasswordController } from "../../../modules/accounts/controller/ResetPassword"
 import { verifyToken } from "../middleware/tokenVerify"
 import { verifyUserAdmin } from "../middleware/verifyUserAdmin"
+import { UpdateUserController } from "../../../modules/user/controller/UpdateUserController"
 
 const user = Router()
 const createUserController = new CreateUserController()
@@ -13,6 +14,7 @@ const listUserController = new ListUserController()
 const loginController = new LoginController()
 const forgotPassword = new ForgotPasswordController()
 const resetPasswordController = new ResetPasswordController()
+const updateUserController = new UpdateUserController()
 
 user.post("/register", createUserController.createUser)
 user.get("/users", verifyToken, verifyUserAdmin, listUserController.listUser)
@@ -20,6 +22,7 @@ user.get("/users", verifyToken, verifyUserAdmin, listUserController.listUser)
 user.post("/login", loginController.execute)
 user.post("/user/forgot", forgotPassword.execute)
 user.post("/user/reset", resetPasswordController.execute)
+user.put("/user/update", verifyToken, updateUserController.execute)
 
 
 export { user }

@@ -11,4 +11,15 @@ interface IReturnCreateUser {
     email: string;
 }
 
-export { IDataUser, IReturnCreateUser }
+interface IUpdateData {
+    id: string;
+    name: string;
+    email: string;
+}
+
+interface IDataReturnUpdate {
+    name: string;
+    email: string
+}
+
+export { IDataUser, IReturnCreateUser, IUpdateData, IDataReturnUpdate }
