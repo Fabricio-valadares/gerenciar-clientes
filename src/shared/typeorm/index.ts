@@ -1,3 +1,6 @@
-import { createConnection } from "typeorm"
+import { createConnection, Connection } from "typeorm"
 
-createConnection()
+export const connectdb = async (): Promise<Connection> => {
+    
+    return createConnection()
+}

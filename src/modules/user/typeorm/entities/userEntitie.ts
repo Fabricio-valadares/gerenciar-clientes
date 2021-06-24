@@ -15,6 +15,9 @@ class UserEntitie {
     @Column()
     password: string
 
+    @Column()
+    isAdmin: boolean
+
     constructor() {
         if (!this.id) {
             this.id = uuidV4()

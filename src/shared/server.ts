@@ -4,8 +4,9 @@ import "express-async-errors"
 import { user } from "./http/router/userRoute"
 import { AppError } from "./error"
 
-import "./typeorm"
+import { connectdb } from "./typeorm"
 
+connectdb()
 const app = express()
 app.use(express.json())
 

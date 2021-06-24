@@ -4,7 +4,8 @@ import { ListUserController } from "../../../modules/user/controller/ListUserCon
 import { LoginController } from "../../../modules/accounts/controller/LoginController"
 import { ForgotPasswordController } from "../../../modules/accounts/controller/ForgotPassword"
 import { ResetPasswordController } from "../../../modules/accounts/controller/ResetPassword"
-import { verifyToken } from "../../middleware/tokenVerify"
+import { verifyToken } from "../middleware/tokenVerify"
+import { verifyUserAdmin } from "../middleware/verifyUserAdmin"
 
 const user = Router()
 const createUserController = new CreateUserController()
@@ -14,7 +15,7 @@ const forgotPassword = new ForgotPasswordController()
 const resetPasswordController = new ResetPasswordController()
 
 user.post("/register", createUserController.createUser)
-user.get("/users", verifyToken, listUserController.listUser)
+user.get("/users", verifyToken, verifyUserAdmin, listUserController.listUser)
 
 user.post("/login", loginController.execute)
 user.post("/user/forgot", forgotPassword.execute)

@@ -1,5 +1,5 @@
 interface IDataLoginRequest {
-    email: string;
+    name: string;
     password: string;
 }
 

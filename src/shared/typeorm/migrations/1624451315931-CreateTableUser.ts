@@ -26,6 +26,11 @@ export class CreateTableUser1624451315931 implements MigrationInterface {
                         type: "varchar"
                     },
                     {
+                        name: "isAdmin",
+                        type: "boolean",
+                        default: false
+                    },
+                    {
                         name: "created_at",
                         type: "timestamp",
                         default: "now()"
