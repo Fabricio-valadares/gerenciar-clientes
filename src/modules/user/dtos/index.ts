@@ -1,3 +1,4 @@
+import { UserEntitie } from "../typeorm/entities/userEntitie"
 
 interface IDataUser {
     name: string;
@@ -22,4 +23,8 @@ interface IDataReturnUpdate {
     email: string
 }
 
-export { IDataUser, IReturnCreateUser, IUpdateData, IDataReturnUpdate }
+interface IDataDeleteUser {
+    user: UserEntitie
+}
+
+export { IDataUser, IReturnCreateUser, IUpdateData, IDataReturnUpdate, IDataDeleteUser }

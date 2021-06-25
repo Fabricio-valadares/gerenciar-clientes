@@ -1,6 +1,6 @@
 import { EntityRepository, Repository } from "typeorm"
 import { UserEntitie } from "../typeorm/entities/userEntitie"
-import { IDataUser } from "../dtos"
+import { IDataUser, IDataDeleteUser } from "../dtos"
 
 @EntityRepository(UserEntitie)
 class UserRepo extends Repository<UserEntitie> {
@@ -34,6 +34,10 @@ class UserRepo extends Repository<UserEntitie> {
         const user = this.findOne({ where: { name } })
 
         return user
+    }
+
+    public async deleteUser(id: string): Promise<void> {
+        await this.delete(id) 
     }
 
 }
