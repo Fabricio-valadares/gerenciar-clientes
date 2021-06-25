@@ -7,19 +7,19 @@ import { UserRepo } from "../../user/repositories/userRepo"
 import getenv from "getenv"
 
 class SessionLoginService {
-    public async verifyDataUser({ name, password }: IDataLoginRequest): Promise<IDataLogin> {
+    public async verifyDataUser({ email, password }: IDataLoginRequest): Promise<IDataLogin> {
         const userRepo = getCustomRepository(UserRepo)
 
-        const user = await userRepo.finfByUserName(name)
+        const user = await userRepo.findByEmail(email)
 
         if (!user) {
-            throw new AppError("Name/password not exists", 400)
+            throw new AppError("Email/password not exists", 400)
         }
 
         const passwordCompare = await compare(password, user.password)
 
         if (!passwordCompare) {
-            throw new AppError("Name/password nots exists", 400)
+            throw new AppError("Email/password not exists", 400)
         }
 
         const token = sign({}, getenv("SECRET_KEY_TOKEN"), {

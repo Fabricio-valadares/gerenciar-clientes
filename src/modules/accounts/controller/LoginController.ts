@@ -3,11 +3,11 @@ import { SessionLoginService } from "../services/sessionLoginService"
 
 class LoginController {
     public async execute(request: Request, response: Response): Promise<Response> {
-        const { name, password } = request.body
+        const { email, password } = request.body
 
         const sessionLoginService = new SessionLoginService()
 
-        const token = await sessionLoginService.verifyDataUser({ name, password })
+        const token = await sessionLoginService.verifyDataUser({ email, password })
 
         return response.status(200).json(token)
     }
