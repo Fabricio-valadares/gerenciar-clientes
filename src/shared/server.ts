@@ -5,10 +5,12 @@ import { user } from "./http/router/userRoute"
 import { AppError } from "./error"
 
 import { connectdb } from "./typeorm"
+import cors from "cors"
 
 connectdb()
 const app = express()
 app.use(express.json())
+app.use(cors())
 
 app.use(user)
 
