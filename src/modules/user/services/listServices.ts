@@ -1,14 +1,26 @@
 import { getCustomRepository } from "typeorm"
-import { IDataUser } from "../dtos"
 import { UserRepo } from "../repositories/userRepo"
 
 class ListServices {
-    public async listUserServices(): Promise<IDataUser[]> {
+    public async listUserServices(): Promise<any> {
         const useRepo = getCustomRepository(UserRepo)
 
         const listInUser = await useRepo.listUser()
 
-        return listInUser
+        const listUser = listInUser.map((ele) => {
+            if (!ele.isAdmin) {
+                return (
+                    {
+                        id: ele.id,
+                        name: ele.name,
+                        email: ele.email,
+                    }
+                )
+            }
+            
+        }).filter(ele => ele !== undefined)
+
+        return listUser
     }
 }
 
