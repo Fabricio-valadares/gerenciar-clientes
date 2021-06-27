@@ -17,7 +17,6 @@ class UpdateUserService {
 
         const passwordHash = await hash(currentPassword, 8)
 
-        console.log("será", id, name, email, password)
         user.name = name !== undefined ? name : user.name
         user.email = email !== undefined ? email : user.email
         user.password = password !== undefined ? passwordHash : user.password
