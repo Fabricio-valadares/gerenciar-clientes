@@ -25,4 +25,13 @@ class CreateServices {
     }
 }
 
+// "nome": "cccc",
+// 	"email": "vini@gmail.com",
+// 	"cpf": "1235452562",
+// 	"acesso": 1,
+// 	"senha": "123",
+// 	"nivel": 999
+
+// validação email e cpf
+
 export { CreateServices }

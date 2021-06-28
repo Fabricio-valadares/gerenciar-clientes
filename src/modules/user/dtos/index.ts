@@ -1,11 +1,12 @@
 import { UserEntitie } from "../typeorm/entities/userEntitie"
 
 interface IDataUser {
-    id: string;
+    id?: string;
     name: string;
     email: string;
     password: string;
-    isAdmin?: boolean; 
+    isAdmin?: boolean;
+    created_at?: Date
 }
 
 interface IDataUserFinal {

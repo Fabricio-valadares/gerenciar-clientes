@@ -13,7 +13,7 @@ class UserRepo extends Repository<UserEntitie> {
     }
 
     public async listUser(): Promise<IDataUser[]> {
-        const listUser = this.find()
+        const listUser = await this.find()
 
         return listUser
     }
