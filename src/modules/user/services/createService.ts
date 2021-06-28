@@ -10,7 +10,7 @@ class CreateServices {
         const userEmail = await useRepo.findByEmail(email)
 
         if (userEmail) {
-            throw new AppError("Email já existe", 200)
+            throw new AppError("Email já existe", 400)
         }
 
         const hashPassword = await hash(password, 8)
