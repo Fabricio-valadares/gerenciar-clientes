@@ -22,6 +22,11 @@ export class CreateTableUser1624451315931 implements MigrationInterface {
                         isUnique: true
                     },
                     {
+                        name: "cpf",
+                        type: "varchar",
+                        isUnique: true
+                    },
+                    {
                         name: "password",
                         type: "varchar"
                     },

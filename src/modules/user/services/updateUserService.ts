@@ -5,7 +5,7 @@ import { AppError } from "../../../shared/error"
 import { hash } from "bcryptjs"
 
 class UpdateUserService {
-    public async upadateUser({ id, name, email, password }: IUpdateData): Promise<IDataReturnUpdate> {
+    public async upadateUser({ id, name, cpf, email, password }: IUpdateData): Promise<IDataReturnUpdate> {
         const useRepo = getCustomRepository(UserRepo)
 
         const user = await useRepo.findByUserId(id)
@@ -19,6 +19,7 @@ class UpdateUserService {
 
         user.name = name !== undefined ? name : user.name
         user.email = email !== undefined ? email : user.email
+        user.cpf = cpf !== undefined ? cpf : user.cpf
         user.password = password !== undefined ? passwordHash : user.password
 
         await useRepo.save(user)

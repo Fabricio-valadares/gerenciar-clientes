@@ -1,5 +1,5 @@
 interface IDataLoginRequest {
-    email: string;
+    emailOrCPF: string;
     password: string;
 }
 
@@ -12,5 +12,10 @@ interface IDataChange {
     password: string;
 }
 
-export { IDataLoginRequest, IDataLogin, IDataChange }
+interface ILoginFinal {
+    password: string;
+    user: any;
+}
+
+export { IDataLoginRequest, IDataLogin, IDataChange, ILoginFinal }
 

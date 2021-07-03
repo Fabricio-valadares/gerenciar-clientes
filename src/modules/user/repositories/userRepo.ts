@@ -4,8 +4,8 @@ import { IDataUser, IDataDeleteUser } from "../dtos"
 
 @EntityRepository(UserEntitie)
 class UserRepo extends Repository<UserEntitie> {
-    public async createUser({ name, email, password }: IDataUser): Promise<UserEntitie> {       
-        const newUser = this.create({ name, email, password })
+    public async createUser({ name, email, cpf, password }: IDataUser): Promise<UserEntitie> {       
+        const newUser = this.create({ name, email, cpf, password })
 
         await this.save(newUser)
 
@@ -20,6 +20,12 @@ class UserRepo extends Repository<UserEntitie> {
 
     public async findByEmail(email: string): Promise<UserEntitie | undefined> {
         const user = await this.findOne({ where: { email } })
+
+        return user
+    }
+
+    public async findByCPF(cpf: string): Promise<UserEntitie | undefined> {
+        const user = await this.findOne({ where: { cpf } })
 
         return user
     }

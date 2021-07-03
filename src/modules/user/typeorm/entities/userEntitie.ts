@@ -13,6 +13,9 @@ class UserEntitie {
     email: string;
 
     @Column()
+    cpf: string;
+
+    @Column()
     password: string
 
     @Column()
