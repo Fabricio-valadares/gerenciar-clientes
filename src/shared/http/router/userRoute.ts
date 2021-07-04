@@ -35,4 +35,3 @@ user.get("/user/listone", verifyToken, listOneUserController.execute)
 
 
 export { user }
-

@@ -1,6 +1,6 @@
 import { EntityRepository, Repository } from "typeorm"
 import { UserEntitie } from "../typeorm/entities/userEntitie"
-import { IDataUser, IDataDeleteUser } from "../dtos"
+import { IDataUser } from "../dtos"
 
 @EntityRepository(UserEntitie)
 class UserRepo extends Repository<UserEntitie> {

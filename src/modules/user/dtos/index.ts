@@ -43,8 +43,5 @@ interface IDataReturnUpdate {
     email: string
 }
 
-interface IDataDeleteUser {
-    user: UserEntitie
-}
 
-export { IDataUser, IReturnCreateUser, IDataUserFinal, IReturnOneUser, IUpdateData, IDataReturnUpdate, IDataDeleteUser }
+export { IDataUser, IReturnCreateUser, IDataUserFinal, IReturnOneUser, IUpdateData, IDataReturnUpdate }
